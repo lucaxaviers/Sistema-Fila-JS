@@ -1,42 +1,37 @@
-function criarFila(tamanho = 10) {
-    return new Array(tamanho);
-  }
-  
-  function inserirFila(item, fila) {
-    if (!item || !fila) {
-      console.error("Erro: Item ou fila não fornecidos");
-      return;
-    }
-  
-    fila.push(item);
-  }
-  
-  function esvaziarFila(fila) {
-    if (!fila) {
-      console.error("Erro: Fila não fornecida.");
-      return;
-    }
-  
-    for (let i = 0; i < fila.length; i++) {
-
-      fila.pop();
-
-    }
-  }
-  
-  function verTamanhoDaFila(fila) {
-    if (!fila) {
-      console.error("Erro: Fila não encontrada");
-      return;
-    }
+export function criarFila(tamanho=2) {
+    return [...new Array(tamanho)]
 }
-  
 
-  let fila = criarFila(4);
-  inserirFila("musical", fila);
-  inserirFila("musica2", fila);
-  console.log(verTamanhoDaFila(fila)); 
-  
-  esvaziarFila(fila);
-  console.log(verTamanhoDaFila(fila)); 
-  
+    export function colocarNaFila(fila = [], item) {
+        if (fila.includes(undefined)) {
+            fila[fila.indexOf(undefined)] = item
+            return
+        }
+        console.log("nao cabe na fila");
+        return
+    }
+export function retirarDaFila(fila = []) {
+    if (fila[0] === undefined) {
+        console.log("nao cabe na fila");
+        return
+    }
+    let primeiroLugar = fila[0]
+    for (let i = 0; i < fila.length -1; i++) {
+        fila[i] = fila[i+1]
+    }
+    fila[fila.length -1] = undefined
+    console.log(primeiroLugar);
+    return primeiroLugar
+}
+export function limparFila(fila=[]) {
+        if (fila[0] === undefined) {
+            console.log("fila vazia");
+            return
+        }
+        let primeiro = fila[0]
+        for (let i = 0; i < fila.length; i++) {
+            fila[i]=undefined
+    }
+    fila[0] fila[0]= primeiro
+}
+}
